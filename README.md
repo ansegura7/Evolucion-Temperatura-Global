@@ -58,7 +58,7 @@ Por último, pero no menos importante, se usó como encabezado de la Visualizaci
 - La temperatura global promedio de la tierra está en constante aumento, tanto en el hemisferio norte como en el sur. Este es el fenómeno conocido como: Calentamiento Global.
 - A partir de 1992 la temperatura promedio de la tierra ha aumentado más, que desde 1880 (año en que empezó la medición) hasta 1991.
 - Aunque inicialmente la temperatura promedio del hemisferio norte era más baja que la del hemisferio sur, a partir de 1900 la tendencia se invirtió. Esto se puede validar en el gráfico 1 y especialmente, en el gráfico 2, en donde la temperatura se discrimina por zonas de latitud.
-- De 1989 a 1992, la temperatura promedio de la tierra disminuyó considerablemente, lo cual coincide con la caída del muero de Berlín y el fin de la Guerra Fría.
+- De 1989 a 1992, la temperatura promedio de la tierra disminuyó considerablemente, lo cual coincide con la caída del muro de Berlín y el fin de la Guerra Fría.
 - A partir de 1992 aproximadamente, la temperatura de los 2 hemisferios ha mantenido la misma pendiente y proporción.
 
 ## Tecnologías Usadas
