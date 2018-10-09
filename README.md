@@ -44,7 +44,7 @@ También, que la Viz permita identificar (identify) anomalías (outliers) que ex
 Por último, que la Viz permita identificar (identify) la distribución (distribution) de la temperatura promedio por mes para un año en específico (Gráfico 3).
 
 ## Marcas y Canales – How
-En los 3 gráficos de líneas, se usaron como marcas puntos conectados por líneas. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar claramente las series.
+En los 3 gráficos de líneas, se usaron como marcas puntos conectados por líneas. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar claramente las series a través del color hue.
 
 Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar cantidad), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.
 
@@ -98,5 +98,4 @@ A continuación, se presentan unos pantallazo del proyecto:
 ## Links de Interés
 - Video de Youtube: https://youtu.be/ezkcyjspbyY
 - Tweet: https://twitter.com/SeguraAndres7/status/1049729210607173632
-
 ##
