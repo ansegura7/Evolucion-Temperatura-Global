@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+	Estudiante: Andres Segura Tinoco
+	Código: 201711582
+	Curso: Visual Analytics
+	Tarea 3
+	Fecha: 25/9/2018
+	Licencia: MIT
+	-->
+<html lang="en">
+	<header>
+		<meta charset="utf-8">
+		<title>VA - Bono para el Parcial</title>
+
+		<!-- Scripts -->
+		<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="https://d3js.org/d3.v5.min.js"></script>
+		<script type="text/javascript" language="javascript" src="https://d3js.org/d3-format.v1.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+
+		<!-- Style -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" >
+	</header>
+	<body>
+		<div id="divContent" align="center">
+			<div id="divHeader" align="left" >
+				<h1>Evolución Dramática de la Temperatura de la Tierra 1880-2018</h1>
+				<p>Estudiante: Andres Segura Tinoco</p>
+				<p>Código: 201711582</p>
+				<p>Curso: Visual Analytics</p>
+				<p>Tarea: Bono para el Parcial 1</p>
+				<p>Fecha: 09/10/2018</p>
+				<p>Licencia: <a target="_blank" href="https://github.com/ansegura7/Evolucion-Temperatura-Global/blob/master/LICENSE">MIT</a></p>
+			</div>
+
+			<div id="divMain" align="center" >
+
+				<div class="divText">
+					<img src="img/main-banner.jpg" />
+					<div class="divSubTitle">
+						Image source: <a target="_blank" href="http://www.responsabilidadsocial.net/calentamiento-global-que-es-definicion-causas-consecuencias-y-combate/">http://www.responsabilidadsocial.net</a>.
+					</div>
+				</div>
+
+				<!-- Chart 1: Hemisphere Annual Means Temperature -->
+				<div class="divText" >
+					<p>El <b>Calentamiento Global</b> es un problema real, que afecta a toda la humanidad por igual, y va en constante aumento año tras año.</p>
+					<p>Según la <a target="_blank" href="https://es.wikipedia.org/wiki/Calentamiento_global">Wikipedia</a>: "El calentamiento global o cambio climático es el aumento observado en más de un siglo de la temperatura del sistema climático de la Tierra y los efectos de aquel aumento.
+					   Múltiples líneas de pruebas científicas demuestran que el sistema climático se está calentando".</p>
+				</div>
+				<div class="divText" align="left">
+					<p>En el siguiente gráfico, se puede observar claramente cómo ha incrementado la temperatura promedio anual en los hemisferios de la tierra, y por lo tanto, la media global.</p>
+					<p>Los tipos de datos fuente son:</p>
+					<ul>
+						<li>LSA Temperature: Global Mean Estimates Based on Land-Surface Air Temperature Anomalies Only (Meteorological Station Data, dTs)</li>
+						<li>LSA and SSW Temperature: Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies (Land-Ocean Temperature Index, LOTI)</li>
+					</ul>
+				</div>
+				<div class="divText" align="left" >
+					<label>Tipo de Dato:</label>
+					<select id="cmdDataType" onchange="ast.refreshData()" >
+					</select>
+					
+					<label>Ver últimos N años:</label>
+					<select id="cmdLastYears" onchange="ast.refreshData()" >
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="Todo">Todo</option>					
+					</select>
+				</div>
+				
+				<svg id="svgLineChart1" class="svgChart" ></svg>
+				<div class="divSubTitle">Gráfico 1 - Temperatura anual promedio por hemisferio.</div>
+
+				<!-- Chart 2: Zonal Annual Means Temperature -->
+				<div class="divText" >
+					<p>Además, en el gráfico 2 se puede observar la misma temperatura anual promedio, pero por zonas de latitud. Ver tabla 1 para mayor comprensión de las zonas.</p>
+				</div>
+				<svg id="svgLineChart2" class="svgChart" ></svg>
+				<div class="divSubTitle">Gráfico 2 - Temperatura anual promedio por zonas de latitud.</div>
+				
+				<div class="divText" align="center">
+					<table id="tbZoneRange" class="display" style="width:70%">
+						<thead>
+							<tr><th>#</th><th>Zone</th><th>Latitude Range</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>1</td><td>North-NPolo</td><td>64N-90N</td></tr>
+							<tr><td>2</td><td>North-North</td><td>44N-64N</td></tr>
+							<tr><td>3</td><td>NCenter-North</td><td>24N-44N</td></tr>
+							<tr><td>4</td><td>Equ-NCenter</td><td>EQU-24N</td></tr>
+							<tr><td>5</td><td>Equ-SCenter</td><td>24S-EQU</td></tr>
+							<tr><td>6</td><td>SCenter-South</td><td>44S-24S</td></tr>
+							<tr><td>7</td><td>South-South</td><td>64S-44S</td></tr>
+							<tr><td>7</td><td>South-SPolo</td><td>90S-64S</td></tr>
+						</tbody>
+					</table>
+					<div class="divSubTitle">Tabla 1 - Zonas de Latitud.</div>
+				</div>
+				
+				<div class="divText" >
+					<p>Tanto en la figura 1 como en la 2, se puede observar claramente, que la temperatura promedio de la tierra ha aumentado drásticamente, con una pendiente aún mayor en el hemisferio (o zonas) norte.</p>
+				</div>
+				
+				<!-- Chart 3: Global Mean Monthly Temperature -->
+				<div class="divText" >
+					<p>Por último, en la figura 3 se puede analizar el comportamiento de la temperatura por mes, para un año en específico.</p>
+				</div>
+				<div class="divText" align="left" >
+					<label>Año de análisis:</label>
+					<select id="cmdCurrYear" onchange="ast.createMonthlyCharts()" >
+					</select>
+					
+					<label>Tipo de Gráfico:</label>
+						<select id="cmdChartType" onchange="ast.createMonthlyCharts()" >
+							<option value="line">Line</option>
+							<option value="bar">Bar</option>
+						</select>
+				</div>
+				<svg id="svgBarChart1" class="svgChart" ></svg>
+				<div class="divSubTitle">Gráfico 3 - Temperatura mensual global promedio para un año.</div>
+
+				<!-- Conclusion -->
+				<div class="divText" align="left">
+					<h3>Conclusión</h3>
+					<p>La temperatura global promedio de la tierra está en constante aumento, tanto en el hemisferio norte como en el sur. Este es el fenómeno conocido como: Calentamiento Global.
+					   Además, a partir de 1992, la temperatura promedio de la tierra ha aumentado más que lo que aumentó desde 1880 (año en que empezó la medición) hasta 1991.
+					   Aunque inicialmente la temperatura promedio del hemisferio norte era más baja que la del hemisferio sur, a partir de 1900 la tendencia se invirtió. Esto se puede validar en el gráfico 1 y especialmente, en el gráfico 2, en donde la temperatura se discrimina por zonas de latitud.
+					   Por último, se observa que partir de 1992 aproximadamente, la temperatura de los 2 hemisferios ha mantenido la misma pendiente y proporción.</p>
+					<p>Debemos tomar conciencia y contribuir activamente para detener el Calentamiento Global, porque como se mencionó al principio, es un problema que nos afecta a todos.</p>
+				</div>
+			</div>
+
+			<div id="divReadme" align="center">
+				
+				<div class="divText" align="left" >
+					<h1>Readme</h1>
+
+					<h3>Datos del Proyecto – What</h3>
+					<p>Los datos que se usaron para este proyecto son propiedad de la <a target="_blank" href="https://data.giss.nasa.gov/gistemp/">NASA</a>, y están compuestos por varios dataset del tipo tabla (tables), que contiene las siguientes variables (attributes):</p>
+					<ul>
+						<li>Year: ordered, quantitative, sequencial (no existen fechas menores a 1880).</li>
+						<li>Temperuture: ordered, quantitative, divergent.</li>
+					</ul>
+					<p><b>Nota</b>: Entre las distintas variables temperatura usadas están: Glob, NHem, SHem, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov y Dec.</p>
+					
+					<p>A continuación, se listan específicamente los dataset usados en el proyecto:</p>
+					<p>>> Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies (Land-Ocean Temperature Index, LOTI):</p>
+					<ul>
+						<li>Global-mean monthly, seasonal, and annual means, 1880-present, updated through most recent month: <a target="_blank" href="https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt">TXT</a></li>
+						<li>Zonal annual means, 1880-present, updated through most recent complete year: <a target="_blank" href="https://data.giss.nasa.gov/gistemp/tabledata_v3/ZonAnn.Ts+dSST.txt">TXT</a></li>
+					</ul>
+					<p>>> Global Mean Estimates Based on Land-Surface Air Temperature Anomalies Only (Meteorological Station Data, dTs):</p>
+					<ul>
+						<li>Global-mean monthly, seasonal, and annual means, 1880-present, updated through most recent month: <a target="_blank" href="https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt">TXT</a></li>
+						<li>Zonal annual means, 1880-present, updated through most recent complete year: <a target="_blank" href="https://data.giss.nasa.gov/gistemp/tabledata_v3/ZonAnn.Ts.txt">TXT</a></li>
+					</ul>
+					
+					<p><b>Citation</b></p>
+					<p>When referencing the GISTEMP data provided here, please cite both this webpage and also our most recent scholarly publication about the data. In citing the webpage, be sure to include the date of access.</p>
+					<ul>
+						<li>GISTEMP Team, 2018: GISS Surface Temperature Analysis (GISTEMP). NASA Goddard Institute for Space Studies. Dataset accessed 20YY-MM-DD at <a target="_blank" href="https://data.giss.nasa.gov/gistemp/">https://data.giss.nasa.gov/gistemp/</a>.</li>
+						<li>Hansen, J., R. Ruedy, M. Sato, and K. Lo, 2010: <a target="_blank" href="https://pubs.giss.nasa.gov/abs/ha00510u.html">Global surface temperature change</a>, Rev. Geophys., 48, RG4004, doi:10.1029/2010RG000345.</li>
+					</ul>
+
+					<h3>Objetivos del Proyecto - Why</h3>
+					<p>Tarea Principal: Crear una visualización web que presente (<b>present</b>) la tendencia (<b>trend</b>) de la temperatura de la tierra a través del tiempo (1880-2018), para impactar y concientizar a las personas del Calentamiento Global.</p>
+					<p>Además, crear una Viz que permita comparar (<b>compare</b>) entre sí, las tendencias (<b>trends</b>) de la temperatura promedio, por hemisferios y zonas, a través del tiempo.</p>
+					<p>También, que la Viz permita identificar (<b>identify</b>) anomalías (<b>outliers</b>) que existe en la temperatura promedio de la tierra, por hemisferio y zonas, así como por años o meses.</p>
+					<p>Por último, que la Viz permita identificar (<b>identify</b>) la distribución (<b>distribution</b>) de la temperatura promedio por mes para un año en específico (Gráfico 3).</p>
+
+					<h3>Marcas y Canales – How</h3>
+					<p>En los 3 gráficos de líneas, se usaron como marcas puntos conectados por líneas. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar claramente las series.</p>
+					<p>Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar cantidad), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.</p>
+					<p>En todos los gráficos se usó la posición vertical, para mostrar el tamaño del valor que se deseaba graficar. Además, también se usó en cada gráfico un título y un subtítulo descriptivo, para ayudar al usuario a entender la información que se está visualizando.</p>
+					<p>La visualización cuenta con múltiples filtros (por tipos de datos, cantidad de datos, año de análisis) para reducir los datos y ayudar al usuario a realizar un mejor análisis.</p>
+					<p>Por último, pero no menos importante, se usó como encabezado de la Visualización un título descriptivo con imagen que llamara la atención del usuario.</p>
+					
+					<h3>Insights</h3>
+					<ul>
+						<li>La temperatura global promedio de la tierra está en constante aumento, tanto en el hemisferio norte como en el sur. Este es el fenómeno conocido como: Calentamiento Global.</li>
+						<li>A partir de 1992 la temperatura promedio de la tierra ha aumentado más, que desde 1880 (año en que empezó la medición) hasta 1991.</li>
+						<li>Aunque inicialmente la temperatura promedio del hemisferio norte era más baja que la del hemisferio sur, a partir de 1900 la tendencia se invirtió. Esto se puede validar en el gráfico 1 y especialmente, en el gráfico 2, en donde la temperatura se discrimina por zonas de latitud.</li>
+						<li>De 1989 a 1992, la temperatura promedio de la tierra disminuyó considerablemente, lo cual coincide con la caída del muero de Berlín y el fin de la Guerra Fría.</li>
+						<li>A partir de 1992 aproximadamente, la temperatura de los 2 hemisferios ha mantenido la misma pendiente y proporción.</li>
+					</ul>
+
+					<h3>Tecnologías Usadas</h3>
+					<p>Para el desarrollo del proyecto se usaron las siguientes tecnologías:</p>
+					<ul>
+						<li>Se usó Sublime Text 3 y Notepad++ como IDEs de desarrollo.</li>
+						<li>HTML y CSS para maquetar el sitio web.</li>
+						<li>Javascript y el framework D3.js para crear los gráficos (de barras y de líneas) y la respectiva interacción con ellos.</li>
+						<li>JQuery para crear la tabla con la información de las zonas de latitud.</li>
+						<li>GitHub para almacenar el código de la Viz, y de los datos usados. A continuación, el enlace a dicho repositorio principal del proyecto: <a target="_blank" href="https://github.com/ansegura7/Evolucion-Temperatura-Global">Evolucion-Temperatura-Global</a></li>
+					</ul>
+
+					<h3>Prerrequisitos</h3>
+					<p>El proyecto depende del acceso a los datos almacenados en el repositorio https://github.com/ansegura7/Evolucion-Temperatura-Global y a la disponibilidad del servicio de GitHub Pages, que permite el acceso por medio de un Navegador a la página principal proyecto.</p>
+					<p>Además, al usar los frameworks D3.js y JQuery, depende de que dichas librerías estén disponibles para ser usadas on-line.</p>
+					
+					<h3>Uso</h3>
+					<ul>
+						<li>La visualización se cargará completa al ingresar su URL en un navegador web.</li>
+						<li>Se puede seleccionar el tipo de dato que se desea usar, en el combo-box <b>Tipo de Dato</b>.</li>
+						<li>Se puede seleccionar la cantidad de datos que se desean visualizar, en el combo-box <b>Ver últimos N años</b>.</li>
+						<li>Para el gráfico 3 (temperatura mensual), se puede seleccionar el año de los datos, en el combo-box <b>Año de análisis</b>.</li>
+						<li>Para el gráfico 3 (temperatura mensual), se puede seleccionar el tipo de gráfico entre Line y Bar, en el combo-box <b>Tipo de Gráfico</b>.</li>
+					</ul>
+					
+					<h3>Autores</h3>
+					<p>El autor de los datos es la <b>NASA</b>. Los datos van desde 1880 hasta el 2018.</p>
+					<p>El autor de la visualización es Andrés Segura Tinoco, CE 201711582.</p>
+
+					<h3>Screenshot</h3>
+					<p>En el siguiente repositorio, se encuentran algunos screenshots del proyecto:</p>
+					<a target="_blank" href="https://github.com/ansegura7/Evolucion-Temperatura-Global/tree/master/screenshots">GitHub Screenshots</a>
+
+					<h3>Licencia</h3>
+					<p>Este proyecto está bajo la licencia <a target="_blank" href="https://github.com/ansegura7/Evolucion-Temperatura-Global/blob/master/LICENSE">MIT</a>.</p>
+				</div>
+
+			</div>
+
+			<script type="text/javascript">
+		        // Run Page Script
+				$(document).ready(function() {
+					setTimeout( () => { ast.init() }, 10);
+					$('#tbZoneRange').DataTable({
+						"paging": false,
+						"ordering": false,
+						"info": false
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>
