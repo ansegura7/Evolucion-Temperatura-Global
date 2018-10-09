@@ -30,7 +30,7 @@ ast.refreshData = () => {
 	
 	// Max Items
 	if (lastYears == "Todo")
-		ast.maxItems = ast.minYear;
+		ast.maxItems = (ast.maxYear - ast.minYear + 1);
 	else
 		ast.maxItems = lastYears;
 	ast.addComboCurrYear(ast.maxYear);
@@ -60,17 +60,17 @@ ast.loadYearlyData = (filename, callback) => {
 			data.forEach(function(d, i) {
 				let nd = {};
 				nd.Year = +d.Year;
-				nd.Glob = ast.toFixedNumber(d.Glob, 100, 2);
-				nd.NHem = ast.toFixedNumber(d.NHem, 100, 2);
-				nd.SHem = ast.toFixedNumber(d.SHem, 100, 2);
-				nd.NorthNPolo = ast.toFixedNumber(d["64N-90N"], 100, 2);
-				nd.NorthNorth = ast.toFixedNumber(d["44N-64N"], 100, 2);
-				nd.NCenterNorth = ast.toFixedNumber(d["24N-44N"], 100, 2);
-				nd.EquNCenter = ast.toFixedNumber(d["EQU-24N"], 100, 2);
-				nd.EquSCenter = ast.toFixedNumber(d["24S-EQU"], 100, 2);
-				nd.SCenterSouth = ast.toFixedNumber(d["44S-24S"], 100, 2);
-				nd.SouthSouth = ast.toFixedNumber(d["64S-44S"], 100, 2);
-				nd.SouthSPolo = ast.toFixedNumber(d["90S-64S"], 100, 2);
+				nd.Glob = ast.toFixedNumber(d.Glob, 1, 2);
+				nd.NHem = ast.toFixedNumber(d.NHem, 1, 2);
+				nd.SHem = ast.toFixedNumber(d.SHem, 1, 2);
+				nd.NorthNPolo = ast.toFixedNumber(d["64N-90N"], 1, 2);
+				nd.NorthNorth = ast.toFixedNumber(d["44N-64N"], 1, 2);
+				nd.NCenterNorth = ast.toFixedNumber(d["24N-44N"], 1, 2);
+				nd.EquNCenter = ast.toFixedNumber(d["EQU-24N"], 1, 2);
+				nd.EquSCenter = ast.toFixedNumber(d["24S-EQU"], 1, 2);
+				nd.SCenterSouth = ast.toFixedNumber(d["44S-24S"], 1, 2);
+				nd.SouthSouth = ast.toFixedNumber(d["64S-44S"], 1, 2);
+				nd.SouthSPolo = ast.toFixedNumber(d["90S-64S"], 1, 2);
 				ast.yearlyData.push(nd);
 			});
 
@@ -94,18 +94,18 @@ ast.loadMonthlyData = (filename, callback) => {
 			data.forEach(function(d, i) {
 				let nd = {};
 				nd.Year = +d.Year;
-				nd.Jan = ast.toFixedNumber(d.Jan, 100, 2);
-				nd.Feb = ast.toFixedNumber(d.Feb, 100, 2);
-				nd.Mar = ast.toFixedNumber(d.Mar, 100, 2);
-				nd.Apr = ast.toFixedNumber(d.Apr, 100, 2);
-				nd.May = ast.toFixedNumber(d.May, 100, 2);
-				nd.Jun = ast.toFixedNumber(d.Jun, 100, 2);
-				nd.Jul = ast.toFixedNumber(d.Jul, 100, 2);
-				nd.Aug = ast.toFixedNumber(d.Aug, 100, 2);
-				nd.Sep = ast.toFixedNumber(d.Sep, 100, 2);
-				nd.Oct = ast.toFixedNumber(d.Oct, 100, 2);
-				nd.Nov = ast.toFixedNumber(d.Nov, 100, 2);
-				nd.Dec = ast.toFixedNumber(d.Dec, 100, 2);
+				nd.Jan = ast.toFixedNumber(d.Jan, 1, 2);
+				nd.Feb = ast.toFixedNumber(d.Feb, 1, 2);
+				nd.Mar = ast.toFixedNumber(d.Mar, 1, 2);
+				nd.Apr = ast.toFixedNumber(d.Apr, 1, 2);
+				nd.May = ast.toFixedNumber(d.May, 1, 2);
+				nd.Jun = ast.toFixedNumber(d.Jun, 1, 2);
+				nd.Jul = ast.toFixedNumber(d.Jul, 1, 2);
+				nd.Aug = ast.toFixedNumber(d.Aug, 1, 2);
+				nd.Sep = ast.toFixedNumber(d.Sep, 1, 2);
+				nd.Oct = ast.toFixedNumber(d.Oct, 1, 2);
+				nd.Nov = ast.toFixedNumber(d.Nov, 1, 2);
+				nd.Dec = ast.toFixedNumber(d.Dec, 1, 2);
 				ast.monthlyData.push(nd);
 			});
 
