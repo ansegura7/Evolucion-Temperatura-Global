@@ -95,5 +95,8 @@ A continuación, se presentan unos pantallazo del proyecto:
 
 ![alt text](https://raw.githubusercontent.com/ansegura7/Evolucion-Temperatura-Global/master/screenshot/Figura3.PNG)
 
-## Licencia
-Este proyecto está bajo la licencia MIT.
+## Links de Interés
+- Video de Youtube: https://youtu.be/ezkcyjspbyY
+- Tweet: https://twitter.com/SeguraAndres7/status/1049729210607173632
+
+##
