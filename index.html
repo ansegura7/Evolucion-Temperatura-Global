@@ -74,14 +74,14 @@
 				</div>
 				
 				<svg id="svgLineChart1" class="svgChart" ></svg>
-				<div class="divSubTitle">Gráfico 1 - Temperatura anual promedio por hemisferio.</div>
+				<div class="divSubTitle">Gráfico 1 - Variación en la temperatura anual promedio por hemisferio.</div>
 
 				<!-- Chart 2: Zonal Annual Means Temperature -->
 				<div class="divText" >
-					<p>Además, en el gráfico 2 se puede observar la misma temperatura anual promedio, pero por zonas de latitud. Ver tabla 1 para mayor comprensión de las zonas.</p>
+					<p>Además, en el gráfico 2 se puede observar la misma variación anual promedio en la temperatura, pero por zonas de latitud. Ver tabla 1 para mayor comprensión de las zonas.</p>
 				</div>
 				<svg id="svgLineChart2" class="svgChart" ></svg>
-				<div class="divSubTitle">Gráfico 2 - Temperatura anual promedio por zonas de latitud.</div>
+				<div class="divSubTitle">Gráfico 2 - Variación en la temperatura anual promedio por zonas de latitud.</div>
 				
 				<div class="divText" align="center">
 					<table id="tbZoneRange" class="display" style="width:70%">
@@ -122,7 +122,7 @@
 						</select>
 				</div>
 				<svg id="svgBarChart1" class="svgChart" ></svg>
-				<div class="divSubTitle">Gráfico 3 - Temperatura mensual global promedio para un año.</div>
+				<div class="divSubTitle">Gráfico 3 - Variación en la temperatura promedio mensual para un año.</div>
 
 				<!-- Conclusion -->
 				<div class="divText" align="left">
@@ -141,7 +141,7 @@
 					<h1>Readme</h1>
 
 					<h3>Datos del Proyecto – What</h3>
-					<p>Los datos que se usaron para este proyecto son propiedad de la <a target="_blank" href="https://data.giss.nasa.gov/gistemp/">NASA</a>, y están compuestos por varios dataset del tipo tabla (Tables), que contiene las siguientes variables (attributes) temporales:</p>
+					<p>Los datos que se usaron para este proyecto son propiedad de la <a target="_blank" href="https://data.giss.nasa.gov/gistemp/">NASA</a>, y están compuestos por varios dataset del tipo Temporal, que contiene las siguientes variables (attributes):</p>
 					<ul>
 						<li>Year: ordered, quantitative, sequencial (no existen fechas menores a 1880).</li>
 						<li>Temperuture: ordered, quantitative, divergent.</li>
@@ -174,8 +174,8 @@
 					<p>Por último, que la Viz permita identificar (<b>identify</b>) la distribución (<b>distribution</b>) de la temperatura promedio por mes para un año en específico (Gráfico 3).</p>
 
 					<h3>Marcas y Canales – How</h3>
-					<p>En los 3 gráficos de tipo Line, se usaron como marcas líneas. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar claramente las series a través del Color Hue. Los años fueron ordenados en el eje X de izquierda a derecha, para respetar el principio de expresividad de los datos.</p>
-					<p>Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar cantidad), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.</p>
+					<p>En los 3 gráficos de tipo Line, se usaron como marcas puntos unidos por líneas para describir la variación de la temperatura. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar (separate) claramente las series a través del Color Hue. Los años fueron ordenados en el eje X de izquierda a derecha, para respetar el principio de expresividad de los datos.</p>
+					<p>Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar la cantidad de la temperatura), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.</p>
 					<p>En todos los gráficos se usó la posición vertical, para mostrar el tamaño del valor que se deseaba graficar. Además, también se usó en cada gráfico un título y un subtítulo descriptivo, para ayudar al usuario a entender la información que se está visualizando.</p>
 					<p>La visualización cuenta con múltiples filtros (por tipos de datos, cantidad de datos, año de análisis) para reducir los datos y ayudar al usuario a realizar un mejor análisis.</p>
 					<p>Por último, pero no menos importante, se usó como encabezado de la Visualización un título descriptivo con imagen que llamara la atención del usuario.</p>
