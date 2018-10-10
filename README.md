@@ -10,7 +10,7 @@
 - Licencia: MIT
 
 ## Datos del Proyecto – What
-Los datos que se usaron para este proyecto son propiedad de la NASA, y están compuestos por varios dataset del tipo tabla (tables), que contiene las siguientes variables (attributes) temporales:
+Los datos que se usaron para este proyecto son propiedad de la NASA, y están compuestos por varios dataset del tipo Temporal, que contiene las siguientes variables (attributes):
 
 - Year: ordered, quantitative, sequencial (no existen fechas menores a 1880).
 - Temperuture: ordered, quantitative, divergent.
@@ -44,9 +44,9 @@ También, que la Viz permita identificar (identify) anomalías (outliers) que ex
 Por último, que la Viz permita identificar (identify) la distribución (distribution) de la temperatura promedio por mes para un año en específico (Gráfico 3).
 
 ## Marcas y Canales – How
-En los 3 gráficos de tipo Line, se usaron como marcas líneas. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar claramente las series a través del Color Hue. Los años fueron ordenados en el eje X de izquierda a derecha, para respetar el principio de expresividad de los datos.
+En los 3 gráficos de tipo Line, se usaron como marcas puntos unidos por líneas para describir la variación de la temperatura. Tanto los datos del eje X como los del eje Y están ordenados secuencialmente. En cada gráfico se usó la escala de colores de D3, para ayudar al usuario a diferenciar (separate) claramente las series a través del Color Hue. Los años fueron ordenados en el eje X de izquierda a derecha, para respetar el principio de expresividad de los datos.
 
-Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar cantidad), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.
+Con respecto al gráfico de barras, se usaron como marcas líneas verticales ordenadas tanto en el eje Y (para expresar la cantidad de la temperatura), como en el eje X (secuencialmente por mes) para mayor entendimiento de los datos.
 
 En todos los gráficos se usó la posición vertical, para mostrar el tamaño del valor que se deseaba graficar. Además, también se usó en cada gráfico un título y un subtítulo descriptivo, para ayudar al usuario a entender la información que se está visualizando.
 
